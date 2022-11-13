@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1668020546 source:c:\users\aidan\desktop\programação\c\pimiv\login\testes\main.c
+	<stdio.h>
+	<stdlib.h>
+
