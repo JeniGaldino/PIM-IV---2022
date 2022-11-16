@@ -45,51 +45,51 @@ criaConta();
     risco = 1;
 
 
-    printf("Bem vindo! Por favor, digite seu nome completo: ");
+    printf("Bem vindo! Por favor, digite o nome completo do paciente: ");
     scanf("%s", &nome_c);
 
-    printf("Digite seu email: ");
+    printf("Digite o email: ");
     scanf("%s", &email);
 
-    printf("Informe seu endereço: ");
+    printf("Informe o endereÃ§o: ");
     scanf("%s", &endereco);
 
-    printf("Digite seu bairro: ");
+    printf("Digite o bairro: ");
     scanf("%s", &bairro);
 
-    printf("Qual sua cidade? ");
+    printf("Qual a cidade do paciente? ");
     scanf("%s", &cidade);
 
     printf("E o estado? (Exemplo: SP) ");
     scanf("%s", &estado);
 
-    printf("Digite o dia do seu nascimento com até 2 digitos: ");
+    printf("Digite o dia do nascimento do paciente com atÃ© 2 digitos: ");
     scanf("%d", &dia_nasc);
 
-    printf("Agora o mês com até 2 digitos: ");
+    printf("Agora o mÃªs com atÃ© 2 digitos: ");
     scanf("%d", &mes_nasc);
 
-    printf("Por fim, o ano do seu nascimento com 4 digitos: ");
+    printf("Por fim, o ano do nascimento com 4 digitos: ");
     scanf("%d", &ano_nasc);
 
-    printf("Digite o dia da descoberta do diagnóstico com até 2 digitos: ");
+    printf("Digite o dia da descoberta do diagnÃ³stico com atÃ© 2 digitos: ");
     scanf("%d", &dia_diag);
 
-    printf("Agora, o mês da descoberta do diagnóstico com até 2 digitos: ");
+    printf("Agora, o mÃªs da descoberta do diagnÃ³stico com atÃ© 2 digitos: ");
     scanf("%d", &mes_diag);
 
-    printf("Por fim, o ano da descoberta do diagnóstico com 4 digitos: ");
+    printf("Por fim, o ano da descoberta do diagnÃ³stico com 4 digitos: ");
     scanf("%d", &ano_diag);
 
 
-    printf("Você tem alguma comorbidade? 1-Sim 2-Não ");
+    printf("O paciente tem alguma comorbidade? 1-Sim 2-NÃ£o ");
     scanf("%d", &risco);
 
     if(risco==1){
         int choseOp;
         while(choseOp <0 || choseOp>5){
 
-        printf("Qual sua comorbidade? \n1-Diabetes\n2-Obesidade\n3-Hipertensão\n4-Tuberculose\n5-Outros\n ");
+        printf("Qual comorbidade? \n1-Diabetes\n2-Obesidade\n3-HipertensÃ£o\n4-Tuberculose\n5-Outros\n ");
         scanf("%d", &choseOp);
 
         }
@@ -105,7 +105,7 @@ criaConta();
             break;
 
             case 3:
-            comorbidade = "Hipertensão";
+            comorbidade = "HipertensÃ£o";
             printf("Cadastro realizado com sucesso!");
             break;
 
@@ -120,7 +120,7 @@ criaConta();
             break;
 
             default:
-            printf("Opção inválida, tente novamente! \n");
+            printf("OpÃ§Ã£o invÃ¡lida, tente novamente! \n");
             break;
 
         }
