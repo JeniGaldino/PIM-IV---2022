@@ -12,13 +12,13 @@ int main()
     //define logged como true para rodar o resto do programa
     void criaConta(){
 
-        printf("Defina seu usuario: \n");
+        printf("Insira seu usuario: \n");
         scanf("%s", &usuario);
 
-        printf("Defina sua senha: ");
+        printf("Insira sua senha: ");
         scanf("%s", &senha);
 
-        printf("Paciente %s foi cadastrado no sistema. ", usuario);
+        printf("Profissional da saude logado com sucesso. ");
         logged= true;
 
     }
