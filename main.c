@@ -7,7 +7,15 @@ int main()
     char usuario[20];
     char senha[15];
     _Bool logged;
-
+    
+    printf("Sistema para Cadastro de Pacientes com Covid \n");
+    printf(" \n");
+    printf("SCPC \n");
+    printf(" \n");
+    printf("Versao 1.0 \n");
+    printf("---------------------------------------------\n");
+    printf(" \n");
+    
     //cria uma conta com usuario e senha
     //define logged como true para rodar o resto do programa
     void criaConta(){
