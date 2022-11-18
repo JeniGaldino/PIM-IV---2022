@@ -36,10 +36,10 @@ int main()
  
 
         printf("Insira seu usuario: \n");
-        scanf("%s", &usuario);
+        scanf("%[A-Z a-z]", &usuario);
 
         printf("Insira sua senha: ");
-        scanf("%s", &senha);
+        scanf("%d", &senha);
 
         printf("Profissional da saude logado com sucesso. ");
         logged= true;
@@ -51,22 +51,22 @@ int main()
     
     
         printf("Bem vindo! Por favor, digite o nome completo do paciente: ");
-        scanf("%s", &nome_c);
+        scanf("%[A-Z a-z]", &nome_c);
     
         printf("Digite o email: ");
-        scanf("%s", &email);
+        scanf("%[A-Z a-z]", &email);
     
         printf("Informe o endereço: ");
-        scanf("%s", &endereco);
+        scanf("%[A-Z a-z]", &endereco);
     
         printf("Digite o bairro: ");
-        scanf("%s", &bairro);
+        scanf("%[A-Z a-z]", &bairro);
     
         printf("Qual a cidade do paciente? ");
-        scanf("%s", &cidade);
+        scanf("%[A-Z a-z]", &cidade);
     
         printf("E o estado? (Exemplo: SP) ");
-        scanf("%s", &estado);
+        scanf("%[A-Z a-z]", &estado);
     
         printf("Digite o dia do nascimento do paciente com até 2 digitos: ");
         scanf("%d", &dia_nasc);
@@ -155,18 +155,20 @@ int main()
             
             case 2:
             cadastro();
-        
+            menu();
             break;
             case 3:
             printf("FILE");
-           
+            menu();
             break;
             case 4:
             printf("Obrigada por utilizar!");
+            menu();
             break;
             
             default:
             printf("Opção inválida, tente novamente! \n");
+            menu();
             break;
             
         }
@@ -176,3 +178,8 @@ int main()
      menu();
     }
      
+   
+     
+ 
+ 
+
