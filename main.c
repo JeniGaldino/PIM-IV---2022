@@ -36,7 +36,7 @@ int main()
  
 
         printf("Insira seu usuario: \n");
-        scanf("%[A-Z a-z]", &usuario);
+        scanf("%s", &usuario);
 
         printf("Insira sua senha: ");
         scanf("%d", &senha);
@@ -51,22 +51,22 @@ int main()
     
     
         printf("Bem vindo! Por favor, digite o nome completo do paciente: ");
-        scanf("%[A-Z a-z]", &nome_c);
+        scanf("%s", &nome_c);
     
         printf("Digite o email: ");
-        scanf("%[A-Z a-z]", &email);
+        scanf("%s", &email);
     
         printf("Informe o endereço: ");
-        scanf("%[A-Z a-z]", &endereco);
+        scanf("%s", &endereco);
     
         printf("Digite o bairro: ");
-        scanf("%[A-Z a-z]", &bairro);
+        scanf("%s", &bairro);
     
         printf("Qual a cidade do paciente? ");
-        scanf("%[A-Z a-z]", &cidade);
+        scanf("%s", &cidade);
     
         printf("E o estado? (Exemplo: SP) ");
-        scanf("%[A-Z a-z]", &estado);
+        scanf("%s", &estado);
     
         printf("Digite o dia do nascimento do paciente com até 2 digitos: ");
         scanf("%d", &dia_nasc);
