@@ -1,185 +1,121 @@
-#include <stdio.h> 
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#define SIZE 200
 
-int main()
-{
-    
-        int choseOp1;
-    
-        _Bool logged;
-        char nome_c,
-        endereco,
-        bairro,
-        cidade,
-        estado,
-        comorbidade,
-        email;
-    
-        char usuario;
-        char senha;
-    
-        
-        
-    
-        int dia_nasc,
-        mes_nasc,
-        ano_nasc,
-        dia_diag,
-        mes_diag,
-        ano_diag,
-        risco = 1;
-    
-    void criaConta(){
-        
-    
- 
+char nome[SIZE][50];
+char endereco[SIZE][50];
+char bairro[SIZE][50];
+char cidade[SIZE][50];
+char estado[SIZE][50];
+char email[SIZE][50];
+char comorbidade[SIZE][50];
 
-        printf("Insira seu usuario: \n");
+int data_nasc[SIZE];
+int data_diag[SIZE];
+int op;
+
+char usuario;
+char senha;
+_Bool logged;
+
+int main(){
+printf("Sistema para Cadastro de Pacientes com Covid \n");
+    printf(" \n");
+    printf("SCPC \n");
+    printf(" \n");
+    printf("Versao 1.0 \n");
+    printf("---------------------------------------------\n");
+    printf(" \n");
+
+menu();
+}
+
+
+void criarConta(){
+
+        printf("\nInsira seu usuario: \n");
         scanf("%s", &usuario);
 
-        printf("Insira sua senha: ");
+        printf("\nInsira sua senha: \n");
         scanf("%d", &senha);
 
         printf("Profissional da saude logado com sucesso. ");
         logged= true;
 
-    }
+}
 
-    void cadastro() {
-        
-    
-    
-        printf("Bem vindo! Por favor, digite o nome completo do paciente: ");
-        scanf("%s", &nome_c);
-    
-        printf("Digite o email: ");
-        scanf("%s", &email);
-    
-        printf("Informe o endereço: ");
-        scanf("%s", &endereco);
-    
-        printf("Digite o bairro: ");
-        scanf("%s", &bairro);
-    
-        printf("Qual a cidade do paciente? ");
-        scanf("%s", &cidade);
-    
-        printf("E o estado? (Exemplo: SP) ");
-        scanf("%s", &estado);
-    
-        printf("Digite o dia do nascimento do paciente com até 2 digitos: ");
-        scanf("%d", &dia_nasc);
-    
-        printf("Agora o mês com até 2 digitos: ");
-        scanf("%d", &mes_nasc);
-    
-        printf("Por fim, o ano do nascimento com 4 digitos: ");
-        scanf("%d", &ano_nasc);
-    
-        printf("Digite o dia da descoberta do diagnóstico com até 2 digitos: ");
-        scanf("%d", &dia_diag);
-    
-        printf("Agora, o mês da descoberta do diagnóstico com até 2 digitos: ");
-        scanf("%d", &mes_diag);
-    
-        printf("Por fim, o ano da descoberta do diagnóstico com 4 digitos: ");
-        scanf("%d", &ano_diag);
-    
-    
-        printf("O paciente tem alguma comorbidade? 1-Sim 2-Não ");
-        scanf("%d", &risco);
-    
-        if(risco==1){
-            int choseOp;
-            while(choseOp <0 || choseOp>5){
-    
-            printf("Qual comorbidade? \n1-Diabetes\n2-Obesidade\n3-Hipertensão\n4-Tuberculose\n5-Outros\n ");
-            scanf("%d", &choseOp);
-    
-            }
-            switch(choseOp){
-                case 1:
-                comorbidade = "Diabetes";
-                printf("Cadastro realizado com sucesso!");
-                break;
-    
-                case 2:
-                comorbidade = "Obesidade";
-                printf("Cadastro realizado com sucesso!");
-                break;
-    
-                case 3:
-                comorbidade = "Hipertensão";
-                printf("Cadastro realizado com sucesso!");
-                break;
-    
-                case 4:
-                comorbidade = "Tuberculose";
-                printf("Cadastro realizado com sucesso!");
-                break;
-    
-                case 5:
-                comorbidade = "Outros";
-                printf("Cadastro realizado com sucesso!");
-                break;
-    
-                default:
-                printf("Opção inválida, tente novamente! \n");
-                break;
-    
-            }
-    
-    
-        }else{
-            printf("Cadastro feito com sucesso!");
-        }
-    }
-    
 
-    
-    void menu(){
- 
+void cadastro(){
+static int linha;
 
-        
-        while(choseOp1<0||choseOp1>4){
-        
-        printf("Bem vindo! Digite o que deseja fazer:\n1-Criar conta\n2-Cadastrar paciente\n3-Listar pacientes\n4-Sair\n");
-        scanf("%d", &choseOp1);
-        
-        switch(choseOp1){
-            case 1:
-            criaConta();
-            menu();
-            break;
-            
-            case 2:
-            cadastro();
-            menu();
-            break;
-            case 3:
-            printf("FILE");
-            menu();
-            break;
-            case 4:
-            printf("Obrigada por utilizar!");
-            menu();
-            break;
-            
-            default:
-            printf("Opção inválida, tente novamente! \n");
-            menu();
-            break;
-            
-        }
+do{
+    printf("\nBem vindo! Por favor, digite o nome do paciente: ");
+    scanf("%s", &nome[linha]);
+
+    printf("Digite o email: ");
+    scanf("%s", &email[linha]);
+
+    printf("Informe o endereço: ");
+    scanf("%s", &endereco[linha]);
+
+    printf("Digite o bairro: ");
+    scanf("%s", &bairro[linha]);
+
+    printf("Qual a cidade do paciente? ");
+    scanf("%s", &cidade[linha]);
+
+    printf("E o estado? (Exemplo: SP) ");
+    scanf("%s", &estado[linha]);
+
+    printf("Digite a data de nascimento do paciente (somente números, sem espaço): ");
+    scanf("%d", &data_nasc[linha]);
+
+    printf("Digite a data de diagnóstico do paciente (somente números, sem espaço) ");
+    scanf("%d", &data_diag[linha]);
+
+    printf("O paciente tem alguma comorbidade? Qual? ");
+    scanf("%s", &comorbidade[linha]);
+
+    printf("Pressione 1 para cadastrar outro paciente ou 2 para voltar ao menu. ");
+    scanf("%d", &op);
+    linha++;
+
+}while(op==1);
+
+}
+
+void menu(){
+do{
+
+    printf("\n-------Menu-----------------\n1-Criar conta\n2-Cadastrar Pacientes\n3-Listar dados dos pacientes\n4-Gerar documento\n5-Encerrar programa ");
+    scanf("%d", &op);
+
+    switch(op){
+case 1:
+    criarConta();
+    break;
+case 2:
+    cadastro();
+    break;
+case 3:
+    printf("Listar pacientes");
+    break;
+case 4:
+    printf("Gerar doc");
+    break;
+case 5:
+    printf("Obrigada por utilizar!");
+    system("exit");
+    break;
+default:
+    printf("Opção inválida, tente novamente!");
+    break;
     }
-    
-    }
-     menu();
-    }
-     
-   
-     
- 
+}while(op!=5);
+
+}
+
+
  
 
