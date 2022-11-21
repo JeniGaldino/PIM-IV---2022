@@ -3,24 +3,32 @@
 #include <stdbool.h>
 #define SIZE 200
 
-char nome[SIZE][50];
-char endereco[SIZE][50];
-char bairro[SIZE][50];
-char cidade[SIZE][50];
-char estado[SIZE][50];
-char email[SIZE][50];
-char comorbidade[SIZE][50];
+struct informacoes_do_paciente
+{
+    char nome[SIZE][50];
+    char email[SIZE][20];
+    char endereco[SIZE][50];
+    char bairro[SIZE][50];
+    char cidade[SIZE][50];
+    char estado[SIZE][50];
+    char comorbidade[SIZE][50];
 
-int data_nasc[SIZE];
-int data_diag[SIZE];
-int op;
+    int data_nasc[SIZE];
+    int data_diag[SIZE];
+    int op;
+};
+struct informacoes_do_paciente paciente;
 
-char usuario;
-char senha;
-_Bool logged;
+struct login_do_profissional
+{
+    char usuario[30];
+    char senha[10];
+    _Bool logged;
+};
+struct login_do_profissional profissional;
 
 int main(){
-printf("Sistema para Cadastro de Pacientes com Covid \n");
+    printf("Sistema para Cadastro de Pacientes com Covid \n");
     printf(" \n");
     printf("SCPC \n");
     printf(" \n");
@@ -28,60 +36,69 @@ printf("Sistema para Cadastro de Pacientes com Covid \n");
     printf("---------------------------------------------\n");
     printf(" \n");
 
-menu();
+    menu();
 }
 
 
 void criarConta(){
 
         printf("\nInsira seu usuario: \n");
-        scanf("%s", &usuario);
+        fgets(profissional.usuario, 30, stdin);
+        scanf("%[^\n]s", &profissional.usuario);
 
         printf("\nInsira sua senha: \n");
-        scanf("%d", &senha);
+        fgets(profissional.senha, 10, stdin);
+        scanf("%[^\n]s", &profissional.senha);
 
         printf("Profissional da saude logado com sucesso. ");
-        logged= true;
+        profissional.logged= true;
 
 }
-
 
 void cadastro(){
 static int linha;
 
 do{
-    printf("\nBem vindo! Por favor, digite o nome do paciente: ");
-    scanf("%s", &nome[linha]);
+    printf("Bem vindo! Por favor, insira os dados do paciente: \n");
+    printf("Digite o nome completo do paciente: ");
+    fgets(paciente.nome, 50, stdin);
+    scanf("%[^\n]s", &paciente.nome[linha]);
 
     printf("Digite o email: ");
-    scanf("%s", &email[linha]);
+    fgets(paciente.email, 20, stdin);
+    scanf("%[^\n]s", &paciente.email[linha]);
 
     printf("Informe o endereço: ");
-    scanf("%s", &endereco[linha]);
+    fgets(paciente.endereco, 20, stdin);
+    scanf("%[^\n]s", &paciente.endereco[linha]);
 
     printf("Digite o bairro: ");
-    scanf("%s", &bairro[linha]);
+    fgets(paciente.bairro, 50, stdin);
+    scanf("%[^\n]s", &paciente.bairro[linha]);
 
     printf("Qual a cidade do paciente? ");
-    scanf("%s", &cidade[linha]);
+    fgets(paciente.cidade, 50, stdin);
+    scanf("%[^\n]s", &paciente.cidade[linha]);
 
     printf("E o estado? (Exemplo: SP) ");
-    scanf("%s", &estado[linha]);
+    fgets(paciente.estado, 50, stdin);
+    scanf("%[^\n]s", &paciente.estado[linha]);
 
     printf("Digite a data de nascimento do paciente (somente números, sem espaço): ");
-    scanf("%d", &data_nasc[linha]);
+    scanf("%d", &paciente.data_nasc[linha]);
 
     printf("Digite a data de diagnóstico do paciente (somente números, sem espaço) ");
-    scanf("%d", &data_diag[linha]);
+    scanf("%d", &paciente.data_diag[linha]);
 
     printf("O paciente tem alguma comorbidade? Qual? ");
-    scanf("%s", &comorbidade[linha]);
+    fgets(paciente.comorbidade, 50, stdin);
+    scanf("%[^\n]s", &paciente.comorbidade[linha]);
 
     printf("Pressione 1 para cadastrar outro paciente ou 2 para voltar ao menu. ");
-    scanf("%d", &op);
+    scanf("%d", &paciente.op);
     linha++;
 
-}while(op==1);
+}while(paciente.op==1);
 
 }
 
@@ -89,9 +106,9 @@ void menu(){
 do{
 
     printf("\n-------Menu-----------------\n1-Criar conta\n2-Cadastrar Pacientes\n3-Listar dados dos pacientes\n4-Gerar documento\n5-Encerrar programa ");
-    scanf("%d", &op);
+    scanf("%d", &paciente.op);
 
-    switch(op){
+    switch(paciente.op){
 case 1:
     criarConta();
     break;
@@ -112,10 +129,10 @@ default:
     printf("Opção inválida, tente novamente!");
     break;
     }
-}while(op!=5);
+}while(paciente.op!=5);
 
 }
 
 
- 
+
 
