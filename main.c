@@ -5,16 +5,24 @@
 
 struct informacoes_do_paciente
 {
+	int CPF [SIZE][11];
     char nome[SIZE][50];
+    int telefone[SIZE][11];
     char email[SIZE][20];
     char endereco[SIZE][50];
+    int numero[SIZE][10];
     char bairro[SIZE][50];
+    int CEP[SIZE][8];
     char cidade[SIZE][50];
     char estado[SIZE][50];
     char comorbidade[SIZE][50];
-
-    int data_nasc[SIZE];
-    int data_diag[SIZE];
+    
+    int dia_diag[SIZE][2];
+	int mes_diag[SIZE][2];
+	int ano_diag[SIZE][2];
+	int dia_nasc[SIZE][2];
+	int mes_nasc[SIZE][2];
+	int ano_nasc[SIZE][2];
     int op;
 };
 struct informacoes_do_paciente paciente;
@@ -27,7 +35,7 @@ struct login_do_profissional
 };
 struct login_do_profissional profissional;
 
-int main(){
+int main(){	
     printf("Sistema para Cadastro de Pacientes com Covid \n");
     printf(" \n");
     printf("SCPC \n");
@@ -84,11 +92,11 @@ do{
     fgets(paciente.estado, 50, stdin);
     scanf("%[^\n]s", &paciente.estado[linha]);
 
-    printf("Digite a data de nascimento do paciente (somente números, sem espaço): ");
-    scanf("%d", &paciente.data_nasc[linha]);
+    printf("Digite a data de nascimento do paciente: (Ex: 00/00/0000): ");
+    scanf("%d/%d/%d", &paciente.dia_nasc[linha], &paciente.mes_nasc[linha], &paciente.ano_nasc[linha]);
 
-    printf("Digite a data de diagnóstico do paciente (somente números, sem espaço) ");
-    scanf("%d", &paciente.data_diag[linha]);
+    printf("Digite a data de diagnóstico do paciente: (Ex: 00/00/0000):  ");
+    scanf("%d/%d/%d", &paciente.dia_diag[linha], &paciente.mes_diag[linha], &paciente.ano_diag[linha]);
 
     printf("O paciente tem alguma comorbidade? Qual? ");
     fgets(paciente.comorbidade, 50, stdin);
@@ -100,6 +108,51 @@ do{
 
 }while(paciente.op==1);
 
+}
+
+int grupoRisco() {
+
+  	int idade = paciente.ano_diag - paciente.ano_nasc;
+  	int aux = paciente.mes_diag + paciente.mes_nasc;
+  	
+  	switch(aux) {
+  		case 'aux < 12 || aux > 23':
+  			idade  = idade - 1;
+  			break;
+  		case 'aux > 12 && aux < 23': 
+	  		idade;
+	  		break;
+  		default: 
+  			idade;
+  	  }
+
+    if (idade >= 65 || paciente.comorbidade != null)
+    {
+    	printf("---------------------------------------------\n");
+    	prinf("Nome: %s\n", paciente.nome);
+        printf("CPF: %d\n", paciente.CPF);
+		printf("Data de nascimento do paciente: %d/%d/%d\n", dia_nasc, mes_nasc, ano_nasc);
+		prinf("Comorbidade: %s\n", paciente.comorbidade);
+		prinf("CEP: %s\n", paciente.CEP);
+		printf("---------------------------------------------\n");
+    } else 
+	{
+    	printf("---------------------------------------------\n");
+    	prinf("Nome: %s\n", paciente.nome);
+        printf("CPF: %d\n", paciente.CPF);
+        printf("Data de nascimento do paciente: %d/%d/%d\n", dia_nasc, mes_nasc, ano_nasc);
+        prinf("Telefone: %d\n", paciente.telefone);
+        printf("Email: %s\n", paciente.email);
+        printf("Data de diagnostico do paciente: %d/%d/%d\n", dia_diag, mes_diag, ano_diag);
+        printf("Endereco: %s\n", paciente.endereco);
+        printf("Numero: %d\n", paciente.numero);
+        printf("Bairro: %s\n", paciente.bairro);
+        printf("Cidade: %s\n", paciente.cidade);
+        printf("Estado: %s\n", paciente.estado);
+		prinf("CEP: %d\n", paciente.CEP);
+		prinf("Comorbidade: %s\n", paciente.comorbidade);
+		printf("---------------------------------------------\n");
+	}
 }
 
 void menu(){
